@@ -20,7 +20,8 @@
       "livenessState": "Liveness state",
       "readinessState": "Readiness state",
       "ping": "Application",
-      "db": "数据库"
+      "db": "数据库",
+      "r2dbc": "数据库"
     },
     "table": {
       "service": "服务名称",

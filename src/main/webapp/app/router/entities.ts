@@ -3,49 +3,49 @@ import { Authority } from '@/shared/security/authority';
 // prettier-ignore
 const Entities = () => import('@/entities/entities.vue');
 
-const Role = () => import('@/entities/role/role.vue');
-const RoleUpdate = () => import('@/entities/role/role-update.vue');
-const RoleDetails = () => import('@/entities/role/role-details.vue');
+const Address = () => import('@/entities/customer/address/address.vue');
+const AddressUpdate = () => import('@/entities/customer/address/address-update.vue');
+const AddressDetails = () => import('@/entities/customer/address/address-details.vue');
 
-const Permission = () => import('@/entities/permission/permission.vue');
-const PermissionUpdate = () => import('@/entities/permission/permission-update.vue');
-const PermissionDetails = () => import('@/entities/permission/permission-details.vue');
+const CusAccount = () => import('@/entities/customer/cus-account/cus-account.vue');
+const CusAccountUpdate = () => import('@/entities/customer/cus-account/cus-account-update.vue');
+const CusAccountDetails = () => import('@/entities/customer/cus-account/cus-account-details.vue');
 
-const Customer = () => import('@/entities/customer/customer.vue');
-const CustomerUpdate = () => import('@/entities/customer/customer-update.vue');
-const CustomerDetails = () => import('@/entities/customer/customer-details.vue');
+const Customer = () => import('@/entities/customer/customer/customer.vue');
+const CustomerUpdate = () => import('@/entities/customer/customer/customer-update.vue');
+const CustomerDetails = () => import('@/entities/customer/customer/customer-details.vue');
 
-const Address = () => import('@/entities/address/address.vue');
-const AddressUpdate = () => import('@/entities/address/address-update.vue');
-const AddressDetails = () => import('@/entities/address/address-details.vue');
+const Menu = () => import('@/entities/auth/menu/menu.vue');
+const MenuUpdate = () => import('@/entities/auth/menu/menu-update.vue');
+const MenuDetails = () => import('@/entities/auth/menu/menu-details.vue');
 
-const CusAccount = () => import('@/entities/cus-account/cus-account.vue');
-const CusAccountUpdate = () => import('@/entities/cus-account/cus-account-update.vue');
-const CusAccountDetails = () => import('@/entities/cus-account/cus-account-details.vue');
+const Order = () => import('@/entities/order/order/order.vue');
+const OrderUpdate = () => import('@/entities/order/order/order-update.vue');
+const OrderDetails = () => import('@/entities/order/order/order-details.vue');
 
-const Menu = () => import('@/entities/menu/menu.vue');
-const MenuUpdate = () => import('@/entities/menu/menu-update.vue');
-const MenuDetails = () => import('@/entities/menu/menu-details.vue');
+const OrderItem = () => import('@/entities/order/order-item/order-item.vue');
+const OrderItemUpdate = () => import('@/entities/order/order-item/order-item-update.vue');
+const OrderItemDetails = () => import('@/entities/order/order-item/order-item-details.vue');
 
-const Product = () => import('@/entities/product/product.vue');
-const ProductUpdate = () => import('@/entities/product/product-update.vue');
-const ProductDetails = () => import('@/entities/product/product-details.vue');
+const Permission = () => import('@/entities/auth/permission/permission.vue');
+const PermissionUpdate = () => import('@/entities/auth/permission/permission-update.vue');
+const PermissionDetails = () => import('@/entities/auth/permission/permission-details.vue');
 
-const ProductCategory = () => import('@/entities/product-category/product-category.vue');
-const ProductCategoryUpdate = () => import('@/entities/product-category/product-category-update.vue');
-const ProductCategoryDetails = () => import('@/entities/product-category/product-category-details.vue');
+const Product = () => import('@/entities/product/product/product.vue');
+const ProductUpdate = () => import('@/entities/product/product/product-update.vue');
+const ProductDetails = () => import('@/entities/product/product/product-details.vue');
 
-const ProductItem = () => import('@/entities/product-item/product-item.vue');
-const ProductItemUpdate = () => import('@/entities/product-item/product-item-update.vue');
-const ProductItemDetails = () => import('@/entities/product-item/product-item-details.vue');
+const ProductCategory = () => import('@/entities/product/product-category/product-category.vue');
+const ProductCategoryUpdate = () => import('@/entities/product/product-category/product-category-update.vue');
+const ProductCategoryDetails = () => import('@/entities/product/product-category/product-category-details.vue');
 
-const Order = () => import('@/entities/order/order.vue');
-const OrderUpdate = () => import('@/entities/order/order-update.vue');
-const OrderDetails = () => import('@/entities/order/order-details.vue');
+const ProductItem = () => import('@/entities/product/product-item/product-item.vue');
+const ProductItemUpdate = () => import('@/entities/product/product-item/product-item-update.vue');
+const ProductItemDetails = () => import('@/entities/product/product-item/product-item-details.vue');
 
-const OrderItem = () => import('@/entities/order-item/order-item.vue');
-const OrderItemUpdate = () => import('@/entities/order-item/order-item-update.vue');
-const OrderItemDetails = () => import('@/entities/order-item/order-item-details.vue');
+const Role = () => import('@/entities/auth/role/role.vue');
+const RoleUpdate = () => import('@/entities/auth/role/role-update.vue');
+const RoleDetails = () => import('@/entities/auth/role/role-details.vue');
 
 // jhipster-needle-add-entity-to-router-import - JHipster will import entities to the router here
 
@@ -53,78 +53,6 @@ export default {
   path: '/',
   component: Entities,
   children: [
-    {
-      path: 'role',
-      name: 'Role',
-      component: Role,
-      meta: { authorities: [Authority.USER] },
-    },
-    {
-      path: 'role/new',
-      name: 'RoleCreate',
-      component: RoleUpdate,
-      meta: { authorities: [Authority.USER] },
-    },
-    {
-      path: 'role/:roleId/edit',
-      name: 'RoleEdit',
-      component: RoleUpdate,
-      meta: { authorities: [Authority.USER] },
-    },
-    {
-      path: 'role/:roleId/view',
-      name: 'RoleView',
-      component: RoleDetails,
-      meta: { authorities: [Authority.USER] },
-    },
-    {
-      path: 'permission',
-      name: 'Permission',
-      component: Permission,
-      meta: { authorities: [Authority.USER] },
-    },
-    {
-      path: 'permission/new',
-      name: 'PermissionCreate',
-      component: PermissionUpdate,
-      meta: { authorities: [Authority.USER] },
-    },
-    {
-      path: 'permission/:permissionId/edit',
-      name: 'PermissionEdit',
-      component: PermissionUpdate,
-      meta: { authorities: [Authority.USER] },
-    },
-    {
-      path: 'permission/:permissionId/view',
-      name: 'PermissionView',
-      component: PermissionDetails,
-      meta: { authorities: [Authority.USER] },
-    },
-    {
-      path: 'customer',
-      name: 'Customer',
-      component: Customer,
-      meta: { authorities: [Authority.USER] },
-    },
-    {
-      path: 'customer/new',
-      name: 'CustomerCreate',
-      component: CustomerUpdate,
-      meta: { authorities: [Authority.USER] },
-    },
-    {
-      path: 'customer/:customerId/edit',
-      name: 'CustomerEdit',
-      component: CustomerUpdate,
-      meta: { authorities: [Authority.USER] },
-    },
-    {
-      path: 'customer/:customerId/view',
-      name: 'CustomerView',
-      component: CustomerDetails,
-      meta: { authorities: [Authority.USER] },
-    },
     {
       path: 'address',
       name: 'Address',
@@ -174,6 +102,30 @@ export default {
       meta: { authorities: [Authority.USER] },
     },
     {
+      path: 'customer',
+      name: 'Customer',
+      component: Customer,
+      meta: { authorities: [Authority.USER] },
+    },
+    {
+      path: 'customer/new',
+      name: 'CustomerCreate',
+      component: CustomerUpdate,
+      meta: { authorities: [Authority.USER] },
+    },
+    {
+      path: 'customer/:customerId/edit',
+      name: 'CustomerEdit',
+      component: CustomerUpdate,
+      meta: { authorities: [Authority.USER] },
+    },
+    {
+      path: 'customer/:customerId/view',
+      name: 'CustomerView',
+      component: CustomerDetails,
+      meta: { authorities: [Authority.USER] },
+    },
+    {
       path: 'menu',
       name: 'Menu',
       component: Menu,
@@ -195,6 +147,78 @@ export default {
       path: 'menu/:menuId/view',
       name: 'MenuView',
       component: MenuDetails,
+      meta: { authorities: [Authority.USER] },
+    },
+    {
+      path: 'order',
+      name: 'Order',
+      component: Order,
+      meta: { authorities: [Authority.USER] },
+    },
+    {
+      path: 'order/new',
+      name: 'OrderCreate',
+      component: OrderUpdate,
+      meta: { authorities: [Authority.USER] },
+    },
+    {
+      path: 'order/:orderId/edit',
+      name: 'OrderEdit',
+      component: OrderUpdate,
+      meta: { authorities: [Authority.USER] },
+    },
+    {
+      path: 'order/:orderId/view',
+      name: 'OrderView',
+      component: OrderDetails,
+      meta: { authorities: [Authority.USER] },
+    },
+    {
+      path: 'order-item',
+      name: 'OrderItem',
+      component: OrderItem,
+      meta: { authorities: [Authority.USER] },
+    },
+    {
+      path: 'order-item/new',
+      name: 'OrderItemCreate',
+      component: OrderItemUpdate,
+      meta: { authorities: [Authority.USER] },
+    },
+    {
+      path: 'order-item/:orderItemId/edit',
+      name: 'OrderItemEdit',
+      component: OrderItemUpdate,
+      meta: { authorities: [Authority.USER] },
+    },
+    {
+      path: 'order-item/:orderItemId/view',
+      name: 'OrderItemView',
+      component: OrderItemDetails,
+      meta: { authorities: [Authority.USER] },
+    },
+    {
+      path: 'permission',
+      name: 'Permission',
+      component: Permission,
+      meta: { authorities: [Authority.USER] },
+    },
+    {
+      path: 'permission/new',
+      name: 'PermissionCreate',
+      component: PermissionUpdate,
+      meta: { authorities: [Authority.USER] },
+    },
+    {
+      path: 'permission/:permissionId/edit',
+      name: 'PermissionEdit',
+      component: PermissionUpdate,
+      meta: { authorities: [Authority.USER] },
+    },
+    {
+      path: 'permission/:permissionId/view',
+      name: 'PermissionView',
+      component: PermissionDetails,
       meta: { authorities: [Authority.USER] },
     },
     {
@@ -270,51 +294,27 @@ export default {
       meta: { authorities: [Authority.USER] },
     },
     {
-      path: 'order',
-      name: 'Order',
-      component: Order,
+      path: 'role',
+      name: 'Role',
+      component: Role,
       meta: { authorities: [Authority.USER] },
     },
     {
-      path: 'order/new',
-      name: 'OrderCreate',
-      component: OrderUpdate,
+      path: 'role/new',
+      name: 'RoleCreate',
+      component: RoleUpdate,
       meta: { authorities: [Authority.USER] },
     },
     {
-      path: 'order/:orderId/edit',
-      name: 'OrderEdit',
-      component: OrderUpdate,
+      path: 'role/:roleId/edit',
+      name: 'RoleEdit',
+      component: RoleUpdate,
       meta: { authorities: [Authority.USER] },
     },
     {
-      path: 'order/:orderId/view',
-      name: 'OrderView',
-      component: OrderDetails,
-      meta: { authorities: [Authority.USER] },
-    },
-    {
-      path: 'order-item',
-      name: 'OrderItem',
-      component: OrderItem,
-      meta: { authorities: [Authority.USER] },
-    },
-    {
-      path: 'order-item/new',
-      name: 'OrderItemCreate',
-      component: OrderItemUpdate,
-      meta: { authorities: [Authority.USER] },
-    },
-    {
-      path: 'order-item/:orderItemId/edit',
-      name: 'OrderItemEdit',
-      component: OrderItemUpdate,
-      meta: { authorities: [Authority.USER] },
-    },
-    {
-      path: 'order-item/:orderItemId/view',
-      name: 'OrderItemView',
-      component: OrderItemDetails,
+      path: 'role/:roleId/view',
+      name: 'RoleView',
+      component: RoleDetails,
       meta: { authorities: [Authority.USER] },
     },
     // jhipster-needle-add-entity-to-router - JHipster will add entities to the router here

@@ -8,6 +8,7 @@ const AuConfigurationComponent = () => import('@/admin/configuration/configurati
 const AuHealthComponent = () => import('@/admin/health/health.vue');
 const AuLogsComponent = () => import('@/admin/logs/logs.vue');
 const AuMetricsComponent = () => import('@/admin/metrics/metrics.vue');
+const AuGatewayComponent = () => import('@/admin/gateway/gateway.vue');
 
 export default [
   {
@@ -62,6 +63,12 @@ export default [
     path: '/admin/configuration',
     name: 'AuConfigurationComponent',
     component: AuConfigurationComponent,
+    meta: { authorities: [Authority.ADMIN] },
+  },
+  {
+    path: '/admin/gateway',
+    name: 'AuGatewayComponent',
+    component: AuGatewayComponent,
     meta: { authorities: [Authority.ADMIN] },
   },
 ];

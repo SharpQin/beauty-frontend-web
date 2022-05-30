@@ -45,6 +45,10 @@
             <font-awesome-icon icon="users-cog" />
             <span class="no-bold" v-text="$t('global.menu.admin.main')">Administration</span>
           </span>
+          <b-dropdown-item to="/admin/gateway" active-class="active">
+            <font-awesome-icon icon="road" />
+            <span v-text="$t('global.menu.admin.gateway')">Gateway</span>
+          </b-dropdown-item>
           <b-dropdown-item to="/admin/user-management" active-class="active">
             <font-awesome-icon icon="users" />
             <span v-text="$t('global.menu.admin.userManagement')">User management</span>
