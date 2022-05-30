@@ -1,0 +1,166 @@
+application {
+  config {
+    baseName beauty,
+    serverPort 8080,
+    applicationType monolith,
+    serviceDiscoveryType eureka,
+    packageName cc.microthink.beauty,
+    authenticationType jwt,
+    buildTool maven,
+    cacheProvider ehcache,
+    clientFramework vue,
+    clientPackageManager npm,
+    databaseType sql,
+    devDatabaseType postgresql,
+    prodDatabaseType postgresql,
+    enableHibernateCache true,
+    enableSwaggerCodegen false,
+    enableTranslation true,
+    jhiPrefix au,
+    languages [en,zh-cn],
+    messageBroker false,
+    nativeLanguage en,
+    reactive false,
+    searchEngine false,
+    skipClient false,
+    skipServer true,
+    skipUserManagement false,
+    testFrameworks [],
+    dtoSuffix DTO,
+    entitySuffix false,
+    websocket false
+  }
+  entities *
+  service Role, Menu, Customer, Product, ProductCategory, Order with serviceClass
+  paginate Role, Menu, Customer, Product, ProductCategory, Order with pagination
+}
+
+entity Role {
+  name String required maxlength(30),
+  dsc String
+}
+
+entity Permission {
+  authKey String required maxlength(30)
+}
+
+entity Customer {
+  name String required maxlength(50),
+  phone String maxlength(15),
+  email String maxlength(20),
+  birthday LocalDate,
+  imageUrl String maxlength(50),
+  langKey String minlength(2) maxlength(10),
+  vip Integer required,
+  level Integer required,
+  point Integer required,
+  activated Boolean,
+  createdDate Instant,
+  lastModifiedDate Instant
+}
+
+entity Address {
+  postalCode String maxlength(10),
+  city String maxlength(30),
+  details String required maxlength(120),
+  defaultAddr Boolean
+}
+
+entity CusAccount {
+  name String required maxlength(20),
+  cardNo String required maxlength(40),
+  accountType AccountType
+}
+
+enum AccountType {
+  BANK, CREDIT
+}
+
+entity Menu {
+  name String required maxlength(30),
+  title String required maxlength(30),
+  link String required maxlength(60),
+  method String required maxlength(10),
+  authKey String required maxlength(30),
+  showed Boolean,
+  parent Long,
+}
+
+entity Product {
+  name String required,
+  price BigDecimal required,
+  type ProductType,
+  image String,
+  releaseDate LocalDate,
+  liveTime Instant,
+  createdTime Instant,
+  updatedTime Instant,
+  stock Integer,
+  showed Boolean,
+  status ProductStatus,
+  dsc String,
+}
+
+enum ProductType {
+  SUIT, SINGLE
+}
+
+enum ProductStatus {
+  AVAILABLE, SELL_OUT
+}
+
+entity ProductCategory {
+  name String required
+  dsc String
+}
+
+entity ProductItem {
+  name String,
+  amount Integer,
+  image String,
+  dsc String,
+}
+
+relationship OneToMany {
+  Product{items} to ProductItem{product},
+  ProductCategory to Product{category(name)}
+}
+
+entity Order {
+  serialNo UUID,
+  price BigDecimal,
+  status OrderStatus,
+  custId Long,
+  createdTime Instant,
+  actionTime Instant,
+  remark String,
+}
+
+enum OrderStatus {
+  PENDING, COMPLETED, CANCELLED
+}
+
+entity OrderItem {
+  prodId Long required,
+  quantity Integer required min(0),
+  totalPrice BigDecimal required min(0),
+  price BigDecimal required min(0),
+  status OrderItemStatus required
+}
+
+enum OrderItemStatus {
+    AVAILABLE, OUT_OF_STOCK, BACK_ORDER
+}
+
+relationship ManyToMany {
+  Role{permissions required} to Permission{roles}
+}
+
+relationship OneToMany {
+  Customer{addresses} to Address{customer},
+  Customer{accounts} to CusAccount{customer}
+}
+
+relationship OneToMany {
+  Order{items} to OrderItem{order}
+}

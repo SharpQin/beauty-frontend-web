@@ -1,0 +1,9 @@
+{
+  "beautyApp": {
+    "ProductType": {
+      "null": "",
+      "SUIT": "SUIT",
+      "SINGLE": "SINGLE"
+    }
+  }
+}

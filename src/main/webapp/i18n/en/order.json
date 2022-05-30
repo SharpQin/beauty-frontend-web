@@ -1,0 +1,31 @@
+{
+  "beautyApp": {
+    "order": {
+      "home": {
+        "title": "Orders",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Order",
+        "createOrEditLabel": "Create or edit a Order",
+        "notFound": "No Orders found"
+      },
+      "created": "A new Order is created with identifier {{ param }}",
+      "updated": "A Order is updated with identifier {{ param }}",
+      "deleted": "A Order is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Order {{ id }}?"
+      },
+      "detail": {
+        "title": "Order"
+      },
+      "id": "ID",
+      "serialNo": "Serial No",
+      "price": "Price",
+      "status": "Status",
+      "custId": "Cust Id",
+      "createdTime": "Created Time",
+      "actionTime": "Action Time",
+      "remark": "Remark",
+      "items": "Items"
+    }
+  }
+}

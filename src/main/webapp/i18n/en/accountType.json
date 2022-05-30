@@ -1,0 +1,9 @@
+{
+  "beautyApp": {
+    "AccountType": {
+      "null": "",
+      "BANK": "BANK",
+      "CREDIT": "CREDIT"
+    }
+  }
+}
