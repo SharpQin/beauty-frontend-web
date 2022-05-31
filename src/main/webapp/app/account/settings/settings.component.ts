@@ -37,7 +37,7 @@ export default class Settings extends Vue {
     this.error = null;
     this.errorEmailExists = null;
     axios
-      .post('api/account', this.settingsAccount)
+      .post('services/auth/api/account', this.settingsAccount)
       .then(() => {
         this.error = null;
         this.success = 'OK';

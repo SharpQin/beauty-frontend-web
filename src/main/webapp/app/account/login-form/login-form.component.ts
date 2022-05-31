@@ -20,7 +20,7 @@ export default class LoginForm extends Vue {
   public doLogin(): void {
     const data = { username: this.login, password: this.password, rememberMe: this.rememberMe };
     axios
-      .post('api/authenticate', data)
+      .post('services/auth/api/authenticate', data)
       .then(result => {
         const bearerToken = result.headers.authorization;
         if (bearerToken && bearerToken.slice(0, 7) === 'Bearer ') {

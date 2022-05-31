@@ -8,6 +8,6 @@ export default class ActivateService {
   }
 
   public activateAccount(key: string): Promise<any> {
-    return this.axios.get(`api/activate?key=${key}`);
+    return this.axios.get(`services/auth/api/activate?key=${key}`);
   }
 }

@@ -47,7 +47,7 @@ export default class ChangePassword extends Vue {
     } else {
       this.doNotMatch = null;
       axios
-        .post('api/account/change-password', {
+        .post('services/auth/api/account/change-password', {
           currentPassword: this.resetPassword.currentPassword,
           newPassword: this.resetPassword.newPassword,
         })

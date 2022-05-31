@@ -30,7 +30,7 @@ export default class ResetPasswordInit extends Vue {
   public requestReset(): void {
     this.error = null;
     axios
-      .post('api/account/reset-password/init', this.resetAccount.email, {
+      .post('services/auth/api/account/reset-password/init', this.resetAccount.email, {
         headers: {
           'content-type': 'text/plain',
         },

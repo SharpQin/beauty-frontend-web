@@ -51,7 +51,7 @@ export default class ResetPasswordFinish extends Vue {
       this.doNotMatch = 'ERROR';
     } else {
       axios
-        .post('api/account/reset-password/finish', { key: this.key, newPassword: this.resetAccount.newPassword })
+        .post('services/auth/api/account/reset-password/finish', { key: this.key, newPassword: this.resetAccount.newPassword })
         .then(() => {
           this.success = 'OK';
         })

@@ -30,7 +30,7 @@ export default class AccountService {
   public retrieveAccount(): Promise<boolean> {
     return new Promise(resolve => {
       axios
-        .get<any>('api/account')
+        .get<any>('services/auth/api/account')
         .then(response => {
           this.store.commit('authenticate');
           const account = response.data;
