@@ -92,9 +92,14 @@ export default class AccountService {
   private checkAuthorities(authorities: any): Promise<boolean> {
     if (this.userAuthorities) {
       for (const authority of authorities) {
-        if (this.userAuthorities.includes(authority)) {
-          return Promise.resolve(true);
+        for (const userAuthority of this.userAuthorities) {
+          if (userAuthority.name === authority) {
+            return Promise.resolve(true);
+          }
         }
+        // if (this.userAuthorities.includes(authority)) {
+        //   return Promise.resolve(true);
+        // }
       }
     }
     return Promise.resolve(false);

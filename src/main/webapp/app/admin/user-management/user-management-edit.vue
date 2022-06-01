@@ -142,7 +142,7 @@
           <div class="form-group">
             <label v-text="$t('userManagement.profiles')">Profiles</label>
             <select class="form-control" multiple name="authority" v-model="userAccount.authorities">
-              <option v-for="authority of authorities" :value="authority" :key="authority">{{ authority }}</option>
+              <option v-for="authority of authorities" :value="authority.id" :key="authority.id">{{ authority.name }}</option>
             </select>
           </div>
         </div>

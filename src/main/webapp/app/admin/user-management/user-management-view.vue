@@ -40,8 +40,8 @@
           <dt><span v-text="$t('userManagement.profiles')">Profiles</span></dt>
           <dd>
             <ul class="list-unstyled">
-              <li v-for="authority of user.authorities" :key="authority">
-                <b-badge variant="info">{{ authority }}</b-badge>
+              <li v-for="authority of user.authorities" :key="authority.id">
+                <b-badge variant="info">{{ authority.name }}</b-badge>
               </li>
             </ul>
           </dd>
