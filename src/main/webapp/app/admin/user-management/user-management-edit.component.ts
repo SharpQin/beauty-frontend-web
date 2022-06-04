@@ -73,6 +73,13 @@ export default class AuUserManagementEdit extends Vue {
       .get(userId)
       .then(res => {
         this.userAccount = res.data;
+        const authArray = [];
+        if (this.userAccount.authorities && this.userAccount.authorities.length > 0) {
+          for (const authObj of this.userAccount.authorities) {
+            authArray.push(authObj.id);
+          }
+        }
+        this.userAccount.authorities = authArray;
       });
   }
 

@@ -18,15 +18,15 @@ const validations: any = {
       maxLength: maxLength(30),
     },
     link: {
-      required,
+      // required,
       maxLength: maxLength(60),
     },
     method: {
-      required,
+      // required,
       maxLength: maxLength(10),
     },
     authKey: {
-      required,
+      // required,
       maxLength: maxLength(30),
     },
     showed: {},
