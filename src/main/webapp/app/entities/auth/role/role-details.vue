@@ -22,9 +22,9 @@
             <span v-text="$t('beautyApp.role.permissions')">Permissions</span>
           </dt>
           <dd>
-            <span v-for="(permissions, i) in role.permissions" :key="permissions.id"
+            <span v-for="(auth, i) in role.auths" :key="auth"
               >{{ i > 0 ? ', ' : '' }}
-              <router-link :to="{ name: 'PermissionView', params: { permissionId: permissions.id } }">{{ permissions.id }}</router-link>
+              {{auth}}
             </span>
           </dd>
         </dl>

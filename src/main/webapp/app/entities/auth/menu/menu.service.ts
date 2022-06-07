@@ -33,6 +33,19 @@ export default class MenuService {
     });
   }
 
+  public retrieveAll(): Promise<any> {
+    return new Promise<any>((resolve, reject) => {
+      axios
+        .get('services/auth/api/allmenus')
+        .then(res => {
+          resolve(res);
+        })
+        .catch(err => {
+          reject(err);
+        });
+    });
+  }
+
   public delete(id: number): Promise<any> {
     return new Promise<any>((resolve, reject) => {
       axios

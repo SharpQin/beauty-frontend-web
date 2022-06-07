@@ -48,30 +48,26 @@
             />
           </div>
           <div class="form-group">
-            <label v-text="$t('beautyApp.role.permissions')" for="role-permissions">Permissions</label>
+            <label v-text="$t('beautyApp.role.permissions')" for="role-authorities">Authorities</label>
             <select
               class="form-control"
-              id="role-permissions"
+              id="role-authorities"
               data-cy="permissions"
               multiple
-              name="permissions"
-              v-if="role.permissions !== undefined"
-              v-model="role.permissions"
+              size="16"
+              name="auths"
+              v-if="role.auths !== undefined"
+              v-model="role.auths"
               required
             >
               <option
-                v-bind:value="getSelected(role.permissions, permissionOption)"
-                v-for="permissionOption in permissions"
-                :key="permissionOption.id"
+                v-bind:value="auth.authKey"
+                v-for="auth in allAuths"
+                :key="auth.authKey"
               >
-                {{ permissionOption.id }}
+                {{ auth.name }} | {{auth.authKey}}
               </option>
             </select>
-          </div>
-          <div v-if="$v.role.permissions.$anyDirty && $v.role.permissions.$invalid">
-            <small class="form-text text-danger" v-if="!$v.role.permissions.required" v-text="$t('entity.validation.required')">
-              This field is required.
-            </small>
           </div>
         </div>
         <div>

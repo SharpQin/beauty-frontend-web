@@ -7,7 +7,6 @@ import CustomerService from './customer/customer/customer.service';
 import MenuService from './auth/menu/menu.service';
 import OrderService from './order/order/order.service';
 import OrderItemService from './order/order-item/order-item.service';
-import PermissionService from './auth/permission/permission.service';
 import ProductService from './product/product/product.service';
 import ProductCategoryService from './product/product-category/product-category.service';
 import ProductItemService from './product/product-item/product-item.service';
@@ -23,7 +22,6 @@ export default class Entities extends Vue {
   @Provide('menuService') private menuService = () => new MenuService();
   @Provide('orderService') private orderService = () => new OrderService();
   @Provide('orderItemService') private orderItemService = () => new OrderItemService();
-  @Provide('permissionService') private permissionService = () => new PermissionService();
   @Provide('productService') private productService = () => new ProductService();
   @Provide('productCategoryService') private productCategoryService = () => new ProductCategoryService();
   @Provide('productItemService') private productItemService = () => new ProductItemService();

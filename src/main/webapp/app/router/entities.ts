@@ -27,10 +27,6 @@ const OrderItem = () => import('@/entities/order/order-item/order-item.vue');
 const OrderItemUpdate = () => import('@/entities/order/order-item/order-item-update.vue');
 const OrderItemDetails = () => import('@/entities/order/order-item/order-item-details.vue');
 
-const Permission = () => import('@/entities/auth/permission/permission.vue');
-const PermissionUpdate = () => import('@/entities/auth/permission/permission-update.vue');
-const PermissionDetails = () => import('@/entities/auth/permission/permission-details.vue');
-
 const Product = () => import('@/entities/product/product/product.vue');
 const ProductUpdate = () => import('@/entities/product/product/product-update.vue');
 const ProductDetails = () => import('@/entities/product/product/product-details.vue');
@@ -195,30 +191,6 @@ export default {
       path: 'order-item/:orderItemId/view',
       name: 'OrderItemView',
       component: OrderItemDetails,
-      meta: { authorities: [Authority.USER] },
-    },
-    {
-      path: 'permission',
-      name: 'Permission',
-      component: Permission,
-      meta: { authorities: [Authority.USER] },
-    },
-    {
-      path: 'permission/new',
-      name: 'PermissionCreate',
-      component: PermissionUpdate,
-      meta: { authorities: [Authority.USER] },
-    },
-    {
-      path: 'permission/:permissionId/edit',
-      name: 'PermissionEdit',
-      component: PermissionUpdate,
-      meta: { authorities: [Authority.USER] },
-    },
-    {
-      path: 'permission/:permissionId/view',
-      name: 'PermissionView',
-      component: PermissionDetails,
       meta: { authorities: [Authority.USER] },
     },
     {

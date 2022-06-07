@@ -1,11 +1,11 @@
 import { IRole } from '@/shared/model/auth/role.model';
 
-export interface IPermission {
+export interface ISimpleAuthority {
   id?: number;
+  name?: string;
   authKey?: string;
-  roles?: IRole[] | null;
 }
 
-export class Permission implements IPermission {
-  constructor(public id?: number, public authKey?: string, public roles?: IRole[] | null) {}
+export class SimpleAuthority implements ISimpleAuthority {
+  constructor(public id?: number, public name?: string, public authKey?: string) {}
 }

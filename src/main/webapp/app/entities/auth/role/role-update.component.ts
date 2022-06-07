@@ -1,14 +1,15 @@
-import { Component, Vue, Inject } from 'vue-property-decorator';
+import {Component, Vue, Inject, Provide} from 'vue-property-decorator';
 
 import { required, maxLength } from 'vuelidate/lib/validators';
 
 import AlertService from '@/shared/alert/alert.service';
 
-import PermissionService from '@/entities/auth/permission/permission.service';
-import { IPermission } from '@/shared/model/auth/permission.model';
+import { ISimpleAuthority } from '@/shared/model/auth/permission.model';
 
 import { IRole, Role } from '@/shared/model/auth/role.model';
 import RoleService from './role.service';
+
+import MenuService from '../menu/menu.service';
 
 const validations: any = {
   role: {
@@ -17,9 +18,7 @@ const validations: any = {
       maxLength: maxLength(30),
     },
     dsc: {},
-    permissions: {
-      required,
-    },
+    auths: {},
   },
 };
 
@@ -29,12 +28,11 @@ const validations: any = {
 export default class RoleUpdate extends Vue {
   @Inject('roleService') private roleService: () => RoleService;
   @Inject('alertService') private alertService: () => AlertService;
+  @Inject('menuService') private menuService: () => MenuService;
 
   public role: IRole = new Role();
 
-  @Inject('permissionService') private permissionService: () => PermissionService;
-
-  public permissions: IPermission[] = [];
+  public allAuths: ISimpleAuthority[] = [];
   public isSaving = false;
   public currentLanguage = '';
 
@@ -55,7 +53,6 @@ export default class RoleUpdate extends Vue {
         this.currentLanguage = this.$store.getters.currentLanguage;
       }
     );
-    this.role.permissions = [];
   }
 
   public save(): void {
@@ -106,6 +103,8 @@ export default class RoleUpdate extends Vue {
       .find(roleId)
       .then(res => {
         this.role = res;
+        //console.log("---------role.auths:" + this.role.auths);
+        //console.log("---------role.auths.length:" + this.role.auths.length);
       })
       .catch(error => {
         this.alertService().showHttpError(this, error.response);
@@ -117,17 +116,17 @@ export default class RoleUpdate extends Vue {
   }
 
   public initRelationships(): void {
-    this.permissionService()
-      .retrieve()
+    this.menuService()
+      .retrieveAll()
       .then(res => {
-        this.permissions = res.data;
+        this.allAuths = res.data;
       });
   }
 
   public getSelected(selectedVals, option): any {
     if (selectedVals) {
-      return selectedVals.find(value => option.id === value.id) ?? option;
+      return selectedVals.find(value => option.authKey === value ?? option.authKey);
     }
-    return option;
+    return option.authKey;
   }
 }

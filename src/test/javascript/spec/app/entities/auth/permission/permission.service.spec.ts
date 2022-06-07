@@ -3,7 +3,7 @@ import axios from 'axios';
 import sinon from 'sinon';
 
 import PermissionService from '@/entities/auth/permission/permission.service';
-import { Permission } from '@/shared/model/auth/permission.model';
+import { SimpleAuthority } from '@/shared/model/auth/permission.model';
 
 const error = {
   response: {
@@ -29,7 +29,7 @@ describe('Service Tests', () => {
 
     beforeEach(() => {
       service = new PermissionService();
-      elemDefault = new Permission(123, 'AAAAAAA');
+      elemDefault = new SimpleAuthority(123, 'AAAAAAA');
     });
 
     describe('Service methods', () => {
@@ -110,7 +110,7 @@ describe('Service Tests', () => {
           {
             authKey: 'BBBBBB',
           },
-          new Permission()
+          new SimpleAuthority()
         );
         const returnedFromService = Object.assign(patchObject, elemDefault);
 

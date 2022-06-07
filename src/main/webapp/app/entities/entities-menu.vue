@@ -4,10 +4,6 @@
       <font-awesome-icon icon="asterisk" />
       <span v-text="$t('global.menu.entities.role')">Role</span>
     </b-dropdown-item>
-    <b-dropdown-item to="/permission">
-      <font-awesome-icon icon="asterisk" />
-      <span v-text="$t('global.menu.entities.permission')">Permission</span>
-    </b-dropdown-item>
     <b-dropdown-item to="/customer">
       <font-awesome-icon icon="asterisk" />
       <span v-text="$t('global.menu.entities.customer')">Customer</span>
