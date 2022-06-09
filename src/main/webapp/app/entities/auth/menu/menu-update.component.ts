@@ -44,6 +44,12 @@ export default class MenuUpdate extends Vue {
   public menu: IMenu = new Menu();
   public isSaving = false;
   public currentLanguage = '';
+  public methods: any = [{'mname':'ALL', 'mvalue':''},
+                         {'mname':'GET', 'mvalue':'GET'},
+                         {'mname':'POST', 'mvalue':'POST'},
+                         {'mname':'PUT', 'mvalue':'PUT'},
+                         {'mname':'PATCH', 'mvalue':'PATCH'},
+                         {'mname':'DELETE', 'mvalue':'DELETE'}];
 
   beforeRouteEnter(to, from, next) {
     next(vm => {

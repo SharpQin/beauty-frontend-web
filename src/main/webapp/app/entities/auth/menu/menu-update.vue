@@ -79,16 +79,12 @@
           </div>
           <div class="form-group">
             <label class="form-control-label" v-text="$t('beautyApp.menu.method')" for="menu-method">Method</label>
-            <input
-              type="text"
-              class="form-control"
-              name="method"
-              id="menu-method"
-              data-cy="method"
-              :class="{ valid: !$v.menu.method.$invalid, invalid: $v.menu.method.$invalid }"
-              v-model="$v.menu.method.$model"
-              required
-            />
+            <select class="form-control" id="menu-method" name="method" v-model="$v.menu.method.$model">
+              <option v-for="meth in methods" :value="meth.mvalue" :key="meth.mvalue">
+                {{ meth.mname }}
+              </option>
+            </select>
+
             <div v-if="$v.menu.method.$anyDirty && $v.menu.method.$invalid">
               <small class="form-text text-danger" v-if="!$v.menu.method.required" v-text="$t('entity.validation.required')">
                 This field is required.
