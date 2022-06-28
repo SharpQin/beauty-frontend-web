@@ -61,6 +61,25 @@ export default class Menu extends Vue {
     this.clear();
   }
 
+  public handleRefreshAuths(): void {
+    this.menuService()
+      .refresh()
+      .then(
+        res => {
+          const message = this.$t('beautyApp.menu.refresh');
+          this.$bvToast.toast(message.toString(), {
+            toaster: 'b-toaster-top-center',
+            title: 'Info',
+            solid: true,
+            autoHideDelay: 5000,
+          });
+        },
+        err => {
+          this.alertService().showHttpError(this, err.response);
+        }
+      );
+  }
+
   public prepareRemove(instance: IMenu): void {
     this.removeId = instance.id;
     if (<any>this.$refs.removeEntity) {

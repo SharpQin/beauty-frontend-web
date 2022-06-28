@@ -7,6 +7,10 @@
           <font-awesome-icon icon="sync" :spin="isFetching"></font-awesome-icon>
           <span v-text="$t('beautyApp.menu.home.refreshListLabel')">Refresh List</span>
         </button>
+        <button class="btn btn-info mr-2" v-on:click="handleRefreshAuths" :disabled="isFetching">
+          <font-awesome-icon icon="sync" :spin="isFetching"></font-awesome-icon>
+          <span v-text="$t('beautyApp.menu.home.refreshAuthorities')">Refresh Authorities</span>
+        </button>
         <router-link :to="{ name: 'MenuCreate' }" custom v-slot="{ navigate }">
           <button @click="navigate" id="jh-create-entity" data-cy="entityCreateButton" class="btn btn-primary jh-create-entity create-menu">
             <font-awesome-icon icon="plus"></font-awesome-icon>

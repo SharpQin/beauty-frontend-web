@@ -59,6 +59,19 @@ export default class MenuService {
     });
   }
 
+  public refresh(): Promise<any> {
+    return new Promise<any>((resolve, reject) => {
+      axios
+        .get(`${baseApiUrl}/refresh`)
+        .then(res => {
+          resolve(res);
+        })
+        .catch(err => {
+          reject(err);
+        });
+    });
+  }
+
   public create(entity: IMenu): Promise<IMenu> {
     return new Promise<IMenu>((resolve, reject) => {
       axios
